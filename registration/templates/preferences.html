@@ -1,0 +1,122 @@
+{% extends "static/base_dash.html" %}
+{% load staticfiles %}
+{% block body %}
+  <div class="container">
+      <div class="templatemo-content-wrapper">
+        <div class="templatemo-content">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Admin Panel</a></li>
+            <li><a href="#">Preferences</a></li>
+            <li class="active">Form Controls</li>
+          </ol>
+          <h1>Preferences</h1>
+          <p class="margin-bottom-15">Here goes another form and form controls.</p>
+          <div class="row">
+            <div class="col-md-12">
+              <form role="form" id="templatemo-preferences-form">
+                <div class="row">
+                  <div class="col-md-6 margin-bottom-15">
+                    <label for="firstName" class="control-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName">
+                  </div>
+                  <div class="col-md-6 margin-bottom-15">
+                    <label for="lastName" class="control-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 margin-bottom-15">
+                    <label for="username" class="control-label">User Name</label>
+                    <input type="text" class="form-control" id="username">
+                  </div>
+                  <div class="col-md-6 margin-bottom-15">
+                    <label for="email" class="control-label">Email ID</label>
+                    <input type="text" class="form-control" id="email">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 margin-bottom-15">
+                    <label for="currentPassword" class="control-label">Current Password</label>
+                    <input type="password" class="form-control" id="currentPassword" value="********" >
+                  </div>
+                  <div class="col-md-6 margin-bottom-15">
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 margin-bottom-15">
+                    <label for="password_1">New Password</label>
+                    <input type="password" class="form-control" id="password_1" placeholder="New Password">  
+                  </div>
+                  <div class="col-md-6 margin-bottom-15">
+                    <label for="password_2">Confirm New Password</label>
+                    <input type="password" class="form-control" id="password_2" placeholder="Confirm New Password">  
+                  </div>
+                </div>
+
+
+
+              <div class="row">
+                <div class="col-md-12 margin-bottom-15">
+                  <label for="notes">Notes</label>
+                  <textarea class="form-control" rows="3" id="notes"></textarea>
+                </div>
+              </div>
+
+                <div class="col-md-6">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="">
+                      Email me when new memeber sign up.
+                    </label>
+                  </div>
+
+
+
+
+                </div>                            
+              </div>                
+
+
+              <div class="row">
+                <div class="col-md-12 margin-bottom-30">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="exampleInputFile">
+                  <p class="help-block">You can upload file here.</p>  
+                </div>                  
+              </div>
+              <div class="row templatemo-form-buttons">
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                  <button type="reset" class="btn btn-default">Reset</button>    
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Are you sure you want to sign out?</h4>
+          </div>
+          <div class="modal-footer">
+            <a href="sign-in.html" class="btn btn-primary">Yes</a>
+            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/templatemo_script.js"></script>
+{% endblock body %}

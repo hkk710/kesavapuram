@@ -1,0 +1,66 @@
+{% extends "static/base.html" %}
+{% load staticfiles %}
+{% load register_extras %}
+
+{% block body %}
+<script>
+$(document).ready(function() {
+    $('#id_user_dob').datepicker({
+      changeYear: true,
+      changeMonth: true,
+      changeYear: true,
+      showOtherMonths: true,
+      selectOtherMonths: true,
+			yearRange: "1940:2015"
+    });
+});
+</script>
+<div class="overlay" id="register_user" style="min-height: 558px;">
+	<div class="container container-top" style="padding-top:3%;">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="content" style="padding-top: 20%;text-align:left" >
+					<p>The Directorate of Corporate & Industry Relations (CIR) strives to achieve excellent
+						placement of students each year. A proven track record of consistent high quality
+						placements year-on-year is one of the reasons for many bright students opting
+						for admissions in Amrita.</p>
+					<p class="lead" style="color: white; padding-bottom: 40px; font-size: 35px; font-weight:350;">
+						<i class="fa fa-circle-o-notch fa-spin"></i> Sign Up should take less than 60 seconds! </p>
+
+				</div>
+			</div>
+			<div class="col-md-6">
+				<form class="form-horizontal well" id="registerForm" method="POST"
+					  enctype="multipart/form-data" action="{% url 'register_user' %}" style="padding-bottom:30px;">
+					<fieldset>
+						{% csrf_token %} {% load tz %}
+						{% for field in form.visible_fields %}
+						<div id="div_{{ field.html_name }}"
+							 class="form-group{% if field.errors %} has-error{% endif%}">
+							<label class="col-sm-4 control-label" for="{{ field.id_for_label }}">
+								{{ field.label }}
+							</label>
+							<div class="col-md-6 cnt-inpt">
+								{{ field|addcss:"form-control" }}
+								<div class="text-muted pull-right">
+									<small>{{ field.help_text }}</small>
+								</div> <!-- form-group -->
+											<span class="help-block">
+													{% for error in field.errors %} {{error }} {% endfor %}
+											</span> <!-- help-block -->
+							</div> <!-- col-sm-4 -->
+						</div>
+						{% endfor %}
+						{% for hidden in user_form.hidden_fields %} {{ hidden }} {% endfor %}
+
+						<div class="form-group" style="text-align:center">
+							<button type="submit" class="btn-new btn-white" >Sign Up <i class="fa fa-paper-plane"></i></button>
+						</div> <!-- form-group -->
+					</fieldset>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock body %}

@@ -1,0 +1,155 @@
+{% extends "static/base.html"%}
+{% load staticfiles %}
+{% block body %}
+      <!----start-header---->
+
+		<!----//End-header---->
+		<!----//start-banner---->
+    <body style="background-image: url( {% static 'krishna1.jpg' %})">
+		<div  style="height:500px;">
+  			<div class="col-md-6" style="padding-top: 150px;">
+				<div class="content_white" >
+					<h2> </h2>
+					<p><i> </i></p>
+					<p><i>“”</i></p>
+		   		</div>
+			</div>
+
+
+			<div class="col-md-6" >
+				<div class="container-top" >
+	<!--contact-->
+
+	<div class="col-sm-6 col-md-7 col-md-offset-3" style="padding-top: 10%;">
+	    <div class="panel panel-default">
+	        <div class="panel-heading">
+	            <h2 style="text-align: center">  Sign In</h2>
+	        </div> <!-- panel-heading -->
+	        <div class="panel-body">
+	            <form role="form" action="{% url 'login' %}" method="POST">
+	            {% csrf_token %}
+	                <fieldset>
+	                    <div class="row" style="text-align: center">
+						</div> <!-- row -->
+	                    <div class="row">
+	                        <div class="col-sm-12 col-md-10  col-md-offset-1 ">
+	                            <div class="form-group {% if form.username.errors %}has-error{% endif %}">
+	                                <div class="input-group">
+	                                    <span class="input-group-addon">
+	                                        <i class="fa fa-envelope"></i>
+	                                    </span>
+	                                    <input class="form-control" placeholder="Email Address"  name="username" type="email" autofocus>
+	                                </div> <!-- input-group -->
+	                            </div> <!-- form-group -->
+	                            <div class="form-group {% if form.password.errors %}has-error{% endif %}">
+	                                <div class="input-group">
+	                                    <span class="input-group-addon">
+	                                        <i class="fa fa-lock"></i>
+	                                    </span>
+	                                    <input class="form-control" placeholder="Password" name="password" type="password">
+	                                    <input type="hidden" name="next" value="{{ next }}" />
+	                                </div> <!-- input-group-addon -->
+	                            </div> <!-- input-group --> <br>
+	                            {% if form.errors %}
+	                            <div class="alert alert-danger">
+	                                <i class="fa fa-warning"></i> "Your username and password didn't match. Please try again."
+	                            </div> <!-- alert alert-danger -->
+	                            {% endif %}
+	                            <div class="form-group">
+	                                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in" >
+	                            </div> <!-- form-group -->
+	                        </div> <!-- col-sm-12 col-md-10 -->
+	                    </div> <!-- row -->
+	                </fieldset>
+	            </form>
+	        </div> <!-- panel-body -->
+	        <div class="panel-footer" style="text-align: center;">
+	           "Don't have an account? "<a href="{% url 'register_user' %}" onClick="">  "Sign Up Here"  </a>
+	            <div class="password-reset-link">
+	                <a href="{% url 'password_reset' %}"> "Lost Password?"</a>
+	            </div>
+	        </div> <!-- panel footer -->
+	    </div> <!-- panel -->
+	</div> <!-- col-sm-6 col-md-4 col-md-offset-4 -->
+</div>
+			</div>
+		</div>
+
+		<!----//end-banner---->
+		<!----//start-content---->
+
+		   </div>
+		  </div>
+		</div>
+
+		<div class="footer" style="background-color:#066b2a;>
+			<div class="footer_top" style="padding-top: 30px;" >
+				<div class="container">
+					<div class="footer_head" >
+						<h2><b>Kesavapuram Sreekrishna Temple</b></h2>
+						<p>Kesavapuram road, Maruthamkuzhy, Kerala 695030</p>
+		   			</div>
+					<!--<div class="row footer_grid">
+					   <div class="col-md-6">
+							<ul class="message">
+								<li class="msg-icon"><i class="msg_icon"> </i></li>
+								<li class="msg-desc">
+									<h4><a href="#">Subscribe Our Newsletter</a></h4>
+									<p>Via email on how to grow your business online</p>
+								</li>
+								<div class="clearfix"> </div>
+							</ul>
+							<div class="subscribe">
+								<form>
+							      <input type="text" value="">
+							      <input type="submit" value="Sign up">
+						        </form>
+						    </div>
+						</div>
+						<div class="col-md-6">
+							<ul class="twitter">
+								<li class="twt_icon"><i class="twt"> </i></li>
+								<li class="twt_desc"><p>dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per.</p></li>
+								<div class="clearfix"> </div>
+							</ul>
+						</div>
+				    </div>-->
+			   </div>
+		     </div>
+		     <div class="footer_midle">
+			   	<div class='container'>
+			   	 <div class="row">
+			   		<div class="col-md-4">
+			   		    <ul class="social_left">
+			   			  <li class="facebook"><a href="#"><i class="fb"> </i></a></li>
+			   			  <li class="fb_text"><h4><a href="#">Follow us on Facebook</a></h4>
+			   			  	<p>quod mazim placerat</p>
+			   			  </li>
+			   			  <div class="clearfix"> </div>
+			   			</ul>
+			   		</div>
+			   		<div class="col-md-4">
+			   		    <ul class="social_left">
+			   			  <li class="facebook"><a href="#"><i class="google"> </i></a></li>
+			   			  <li class="fb_text"><h4><a href="#">Follow us on Google +</a></h4>
+			   			  	<p>dolore eu feugiat nulla</p>
+			   			  </li>
+			   			  <div class="clearfix"> </div>
+			   			</ul>
+			   		</div>
+			   		<div class="col-md-4">
+			   		    <ul class="social_left">
+			   			  <li class="facebook"><a href="#"><i class="linked"> </i></a></li>
+			   			  <li class="fb_text"><h4><a href="#">Follow us on LinkedIn</a></h4>
+			   			  	<p>quod mazim placerat</p>
+			   			  </li>
+			   			  <div class="clearfix"> </div>
+			   			</ul>
+			   		</div>
+			   	 </div>
+		       </div>
+		    </div>
+		</div>
+    </body>
+
+{% endblock body%}

@@ -1,0 +1,54 @@
+{% extends "static/base.html" %}
+{% load staticfiles %}
+{% load register_extras %}
+
+
+{% block body %}
+<div class="overlay" id="register_user">
+<div class="container container_top">
+    <div class="row">
+	<div class="col-md-6">
+         <div class="content" style="padding-top: 30%;text-align:left" >
+            <p class="lead" style=" padding-bottom: 40px; font-size: 35px; font-weight:350;">
+              <i class="fa fa-circle-o-notch fa-spin"></i> Update Student Profile! </p>
+          </div>
+    </div>
+    <div class="col-md-6">
+
+		<form class="form-horizontal well" id="registerForm" method="POST"
+	    enctype="multipart/form-data" action="">
+	    <fieldset>
+	        {% csrf_token %} {% load tz %}
+	        {% for field in form.visible_fields %}
+	        <div id="div_{{ field.html_name }}"
+	            class="form-group{% if field.errors %} has-error{% endif%}">
+	            <label class="col-sm-4 control-label" for="{{ field.id_for_label }}">
+	                {{ field.label }}
+	            </label>
+				<div class="col-md-6 cnt-inpt">
+					{{ field|addcss:"form-control" }}
+					<div class="text-muted pull-right">
+	                    <small>{{ field.help_text }}</small>
+	                </div> <!-- form-group -->
+	                <span class="help-block">
+	                    {% for error in field.errors %} {{error }} {% endfor %}
+	                </span> <!-- help-block -->
+	            </div> <!-- col-sm-4 -->
+
+
+			</div>
+			{% endfor %}
+	        {% for hidden in user_form.hidden_fields %} {{ hidden }} {% endfor %}
+
+					<div class="form-group" style="text-align:center">
+										 <button type="submit" class="btn btn-success">Update</button>
+						 </div> <!-- form-group -->
+
+					 </fieldset>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	</div>
+	{% endblock body %}

@@ -1,0 +1,67 @@
+{% extends "static/base_dash.html" %}
+{% load staticfiles %}
+{% block body %}
+<div class="container">
+    <div class="templatemo-content-wrapper">
+        <div class="templatemo-content">
+  <div class="row">
+      <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover d">
+              {% if object_list %}
+              <thead>
+                  <tr>
+                        <th>Aums ID</th>
+                        <th style="width:100px">Name</th>
+                        <th>Current Course</th>
+                        <th>Branch</th>
+                       <!-- <th>Tenth marks</th>
+                        <th>Twelth marks</th>
+                        <th>S1</th>
+                        <th>S2</th>
+                        <th>S3</th>
+                        <th>S4</th>
+                        <th>S5</th>
+                        <th>S6</th>-->
+                        <th>CGPA</th>
+                        <th>Current Arrears</th>
+                        <th>History of arrears</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+              {% for student in object_list %}
+              <tr>
+                    <td> {{ student.aums_id }} </td>
+                    <td> {{ student.name }} </td>
+                    <td> {{ student.curr_course }} </td>
+                    <td> {{ student.branch }} </td>
+                   <!-- <td> {{ student.tenth_mark }} </td>
+                    <td> {{ student.twelth_mark }} </td>
+                    <td> {{ student.s1 }} </td>
+                    <td> {{ student.s2 }} </td>
+                    <td> {{ student.s3 }} </td>
+                    <td> {{ student.s4 }} </td>
+                    <td> {{ student.s5 }} </td>
+                    <td> {{ student.s6 }} </td>-->
+                    <td> {{ student.cgpa }} </td>
+                    <td> {{ student.curr_arrears }} </td>
+                    <td> {{ student.hist_arrears }} </td>
+
+
+              </tr>
+              </tbody>
+              {% endfor %}
+              {% else %}
+              <div class="alert alert-danger" style="text-align: center">
+								 No Students have registered yet
+						 	</div>
+              {% endif%}
+          </table>
+      </div><!--table-responsive-->
+  </div><!--row-->
+</div>
+    </div>
+    </div>
+
+
+{% endblock body %}

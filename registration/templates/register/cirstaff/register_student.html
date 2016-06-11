@@ -1,0 +1,50 @@
+{% extends "static/base_dash.html" %}
+{% load staticfiles %}
+{% load register_extras %}
+
+{% block body %}
+<div class="contact">
+		<div class="container">
+		<h3 class=" col-md-offset-2 " align="center">Student Registration</h3> <br>
+		<div class="col-md-6 col-md-offset-4 well">
+			<div class="row">
+
+		<form class="form-horizontal" id="registerForm" method="POST"
+	    enctype="multipart/form-data" action="{% url 'register_student' %}">
+	    <fieldset>
+	        {% csrf_token %} {% load tz %}
+	        {% for field in form.visible_fields %}
+	        <div id="div_{{ field.html_name }}"
+	            class="form-group{% if field.errors %} has-error{% endif%}">
+	            <label class="col-sm-4 control-label" for="{{ field.id_for_label }}">
+	                {{ field.label }}
+	            </label>
+				<div class="col-md-6 cnt-inpt">
+					{{ field|addcss:"form-control" }}
+					<div class="text-muted pull-right">
+	                    <small>{{ field.help_text }}</small>
+	                </div> <!-- form-group -->
+	                <span class="help-block">
+	                    {% for error in field.errors %} {{error }} {% endfor %}
+	                </span> <!-- help-block -->
+	            </div> <!-- col-sm-4 -->
+
+
+			</div>
+			{% endfor %}
+	        {% for hidden in user_form.hidden_fields %} {{ hidden }} {% endfor %}
+							<div class="col-md-6">
+								<div class="g-recaptcha" data-sitekey="6Le8eBETAAAAABT1IsksSh-Jt4JYn6-txRke21fd"></div>
+							</div>
+				<div class="form-group">
+							 <div class="col-sm-offset-5 col-sm-4">
+									 <button type="submit" class="btn btn-primary btn-block">Register</button>
+							 </div> <!-- col-sm-offset-6 -->
+					 </div> <!-- form-group -->
+			 </fieldset>
+		 </form>
+	</div>
+	</div>
+	</div>
+</div>
+{% endblock body %}

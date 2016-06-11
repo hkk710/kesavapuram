@@ -1,0 +1,49 @@
+{% extends "static/base_dash.html" %}
+{% load staticfiles %}
+{% block body %}
+
+<div class="container">
+    <div class="templatemo-content">
+    <div style="padding-top: 15px;">
+        <form class="form-horizontal" method="post">
+          {% csrf_token %} {% load tz %}
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">AUMS ID </label>
+    <div class="col-sm-10">
+      <input type="text" name="aums_id" class="form-control" id="inputEmail3" placeholder="AUMS ID here">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">TEST</label>
+    <div class="col-sm-10">
+      <select class="form-control" name="test">
+                  {% for item in myvar %}
+                     <option value="{{ item.id }}"> {{ item.name }}</option>
+        {% endfor %}
+        </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Mark</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="mark" id="marks" placeholder="Marks">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Add Mark</button>
+    </div>
+  </div>
+</form>
+
+      {% if success %}
+          <div class="alert alert-success" style="text-align:center">
+    You have added the marks for 1 student. Thank you!
+    </div><!--alert alert-success-->
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

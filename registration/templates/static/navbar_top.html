@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<nav class="navbar navbar-default " >
+  <div class="container-fluid" style="background-color:	#06a95e;" >
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><b>HOME</b></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+       <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+		  <li><a href="{% url 'about' %}">About</a></li>
+        </li>
+      </ul>
+      {% if user.is_anonymous %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'register_user' %}">Sign Up</a></li>
+		  <li><a href="{% url 'login' %}">Log in</a></li>
+      </ul>
+
+      {% elif user.is_cir_staff %}
+         <ul class="nav navbar-nav navbar-right">
+       <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="text-decoration:none;">CIR Staff <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="{% if request.resolver_match.url_name == 'manage_staff' %}active{% endif %}">
+                                    <a href="{% url 'manage_staff' %}">
+                                        <i class='fa fa-eye' style='color:#F14700'></i> Dashboard </a>
+                                </li>
+                                <li class="{% if request.resolver_match.url_name == 'password_change' %}active{% endif %}">
+                                    <a href="{% url 'password_change' %}">
+                                        <i class='fa fa-key' style='color:#F14700'></i> Change Password </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'logout' %}">
+                                        <i class='fa fa-power-off' style='color:red'></i> Logout
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+             </ul>
+
+      {% else %}
+          <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  style="text-transform: capitalize; text-decoration: none;">Student
+                                <span class="caret"></span></a>
+
+                            <ul class="dropdown-menu">
+                                <li class="{% if request.resolver_match.url_name == 'password_change' %}active{% endif %}">
+                                    <a href="{% url 'password_change' %}">
+                                        <i class='fa fa-key' style='color:#F14700'></i> Change Password </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'logout' %}">
+                                        <i class='fa fa-power-off' style='color:red'></i> Logout
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+              </ul>
+      {% endif %}
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

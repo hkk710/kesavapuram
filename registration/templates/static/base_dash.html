@@ -1,0 +1,139 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  <title>CIR Amrita</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width">        
+  <link rel="stylesheet" href="{% static 'css/templatemo_main.css' %}">
+<!-- 
+Dashboard Template 
+http://www.templatemo.com/preview/templatemo_415_dashboard
+-->
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/Chart.min.js' %}"></script>
+    <script src="{% static 'js/templatemo_script.js' %}"></script>
+    <script type="text/javascript">
+    // Line chart
+    var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+    var lineChartData = {
+      labels : ["January","February","March","April","May","June","July"],
+      datasets : [
+      {
+        label: "My First dataset",
+        fillColor : "rgba(220,220,220,0.2)",
+        strokeColor : "rgba(220,220,220,1)",
+        pointColor : "rgba(220,220,220,1)",
+        pointStrokeColor : "#fff",
+        pointHighlightFill : "#fff",
+        pointHighlightStroke : "rgba(220,220,220,1)",
+        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+      },
+      {
+        label: "My Second dataset",
+        fillColor : "rgba(151,187,205,0.2)",
+        strokeColor : "rgba(151,187,205,1)",
+        pointColor : "rgba(151,187,205,1)",
+        pointStrokeColor : "#fff",
+        pointHighlightFill : "#fff",
+        pointHighlightStroke : "rgba(151,187,205,1)",
+        data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
+      }
+      ]
+
+    }
+
+    window.onload = function(){
+      var ctx_line = document.getElementById("templatemo-line-chart").getContext("2d");
+      window.myLine = new Chart(ctx_line).Line(lineChartData, {
+        responsive: true
+      });
+    };
+
+    $('#myTab a').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+
+    $('#loading-example-btn').click(function () {
+      var btn = $(this);
+      btn.button('loading');
+      // $.ajax(...).always(function () {
+      //   btn.button('reset');
+      // });
+  });
+  </script>
+  <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+
+
+
+</head>
+<body>
+<div class="page-wrap">
+{% block navbar %}
+	{% include 'static/navbar_top.html' %}
+{% endblock navbar %}
+<div class="template-page-wrapper">
+      <div class="navbar-collapse collapse templatemo-sidebar">
+        <ul class="templatemo-sidebar-menu">
+          <li>
+            <form class="navbar-form">
+              <input type="text" class="form-control" id="templatemo_search_box" placeholder="Search...">
+              <span class="btn btn-default">Go</span>
+            </form>
+          </li>
+          <li class="active"><a href="{% url 'manage_students' %}"><i class="fa fa-home"></i>Dashboard</a></li>
+          <li class="sub open">
+            <a href="javascript:;">
+              <i class="fa fa-database"></i> Manage Users <div class="pull-right"><span class="caret"></span></div>
+            </a>
+            <ul class="templatemo-submenu">
+              <li><a href="{% url 'register_student' %}">Add a Student</a></li>
+              <li><a href="{% url 'register_student_bulk' %}">Bulk Upload</a></li>
+              <li><a href="{% url 'list' %}">List Students</a></li>
+            </ul>
+          </li>
+
+          <li class="sub open">
+              <a href="javascript:;">
+              <i class="fa fa-database"></i> Filters <div class="pull-right"><span class="caret"></span></div>
+            </a>
+            <ul class="templatemo-submenu">
+              <li><a href="{% url 'register_student' %}">Internal Filters</a></li>
+              <li><a href="{% url 'filter_external' %}">External Filters</a></li>
+            </ul>
+          </li>
+
+          <li class="sub open">
+              <a href="javascript:;">
+              <i class="fa fa-database"></i> Tests <div class="pull-right"><span class="caret"></span></div>
+            </a>
+            <ul class="templatemo-submenu">
+              <li><a href="{% url 'technical_test' %}">Technical Tests</a></li>
+              <li><a href="{% url 'filter_external' %}">Quantitative Tests</a></li>
+              <li><a href="{% url 'filter_external' %}">Verbals Tests</a></li>
+              <li><a href="{% url 'filter_external' %}">HR Tests</a></li>
+              <li><a href="{% url 'filter_external' %}">Reasoning Tests</a></li>
+              <li><a href="{% url 'filter_external' %}">Eligibility Tests</a></li>
+            </ul>
+          </li>
+
+          <li><a href="{% url 'preferences' %}"><i class="fa fa-cog"></i>Preferences</a></li>
+          <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+        </ul>
+      </div><!--/.navbar-collapse -->
+
+    </div>
+{% block body %}
+{% endblock body %}
+</div>
+{% include 'static/fixed_footer.html' %}
+
+
+</body>
+</html>
