@@ -1,12 +1,13 @@
 {% extends "static/base.html" %}
 {% load staticfiles %}
 {% block body %}
+<body style="background-image: url( {% static 'k2.jpg' %})">
 <div class="container container-top" style="min-height: 558px;">
 	<!--contact-->
 	<div class="col-sm-6 col-md-4 col-md-offset-4" style="padding-top: 15px;">
 	    <div class="panel panel-default">
 	        <div class="panel-heading">
-	            <h2 style="text-align: center">  Sign In</h1>
+	            <h1 style="text-align: center">  Sign In</h1>
 	        </div> <!-- panel-heading -->
 	        <div class="panel-body">
 	            <form role="form" action="{% url 'login' %}" method="POST">
@@ -61,4 +62,5 @@
 	    </div> <!-- panel -->
 	</div> <!-- col-sm-6 col-md-4 col-md-offset-4 -->
 </div>
+</body>
 {% endblock body %}

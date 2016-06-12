@@ -9,10 +9,9 @@ from django.contrib.auth.decorators import login_required
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='register/register.html')),
     url(r'^user/$', UserRegistrationView.as_view(), name='register_user'),
-    url(r'^user/success/', TemplateView.as_view(template_name='register/user/success.html'),
-    name='user_registration_success'),
-    url(r'^portal/student', TemplateView.as_view(template_name='register/manage_students.html'),name="manage_students"),
-    url(r'^portal/staff', TemplateView.as_view(template_name='register/manage_staff.html'),name="manage_staff"),
+    url(r'^user/success/$',TemplateView.as_view(template_name='register/user/success.html'),name='user_registration_success'),
+    url(r'^portal/student/$',TemplateView.as_view(template_name='register/manage_students.html'),name="manage_students"),
+    url(r'^portal/staff/$',TemplateView.as_view(template_name='register/manage_staff.html'),name="manage_staff"),
     url(r'^preferences', TemplateView.as_view(template_name='preferences.html'),name="preferences"),
     url(r'^sign-in', TemplateView.as_view(template_name='sign-in.html'),name="sign-in"),
     url(r'^index', TemplateView.as_view(template_name='index.html'),name="index"),
