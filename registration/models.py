@@ -81,25 +81,36 @@ class StudentManager(models.Manager):
         # do something with the book
         return student
 
+Prathishtta  = (('SreekrishnaSwamy', _('SreekrishnaSwamy')), ('Ganapathi', _('Ganapathi')), ('Devi', _('Devi')),
+         ('Nagar', _('Nagar')),
+         )
+
+Vazhipad_cattegory = (('Archana', _('Archana')), ('Homam', _('Homam')), ('Pooja', _('Pooja')),
+                  ('Samarppanam', _('Samarppanam')),
+                  )
+Archana = (('Ashttothara', _('Ashttothara')), ('Vishnusahasranama', _('Vishnusahasranama')), ('Bhagyasuktha', _('Bhagyasuktha')),
+            ('Swayawara', _('Swayawara')),
+           )
+
+price = ((20.0, _(20.0)), )
 
 class Student(models.Model):
-    aums_id = models.CharField(_('Aums ID'),  max_length=32, blank=False, unique=True,primary_key=True)
-    name = models.CharField(_('First Name'), max_length=32, blank=True, null=True)
-    curr_course = models.CharField(_('Current Course'), max_length=32, blank=True, null=True,
+    aums_id = models.CharField(_('Prathishtta'),  max_length=32, choices=Prathishtta, blank=False, unique=True,primary_key=True)
+    name = models.CharField(_('Vazhipad cattegory'), max_length=32, choices=Vazhipad_cattegory,blank=True, null=True)
+    curr_course = models.CharField(_('Vazhipad'), max_length=32,choices= Archana ,blank=True, null=True,
                                   validators=[RegexValidator(regex='^[A-Za-z]*$')])
-    branch = models.CharField(_('Branch'), max_length=32, blank=True, null=True,
-                                  validators=[RegexValidator(regex='^[A-Za-z]*$')])
-    tenth_mark = models.FloatField(_('10th Mark'), blank=True, null=True)
-    twelth_mark = models.FloatField(_('12th Mark'), blank=True, null=True)
-    s1 = models.FloatField(_('S1 Mark'), blank=True, null=True)
-    s2 = models.FloatField(_('S2 Mark'), blank=True, null=True)
-    s3 = models.FloatField(_('S3 Mark'), blank=True, null=True)
-    s4 = models.FloatField(_('S4 Mark'), blank=True, null=True)
-    s5 = models.FloatField(_('S5 Mark'), blank=True, null=True)
-    s6 = models.FloatField(_('S6 Mark'), blank=True, null=True)
-    cgpa = models.FloatField(_('CGPA'), blank=True, null=True)
-    curr_arrears = models.IntegerField(_('No of current arrears'), blank=True, null=True)
-    hist_arrears = models.IntegerField(_('No of history arrears'), blank=True, null=True)
+    branch = models.CharField(_('Your Name'), max_length=32, blank=True, null=True)
+    tenth_mark = models.DateField(_('Vazhipad Date'), null=True)
+    twelth_mark = models.FloatField( _('Price'), blank=True, null=True)
+    #s1 = models.FloatField(_('S1 Mark'), blank=True, null=True)
+    #s2 = models.FloatField(_('S2 Mark'), blank=True, null=True)
+    #s3 = models.FloatField(_('S3 Mark'), blank=True, null=True)
+    #s4 = models.FloatField(_('S4 Mark'), blank=True, null=True)
+    #s5 = models.FloatField(_('S5 Mark'), blank=True, null=True)
+    #s6 = models.FloatField(_('S6 Mark'), blank=True, null=True)
+    #cgpa = models.FloatField(_('CGPA'), blank=True, null=True)
+    #curr_arrears = models.IntegerField(_('No of current arrears'), blank=True, null=True)
+    #hist_arrears = models.IntegerField(_('No of history arrears'), blank=True, null=True)
 
     Objects = StudentManager()
 

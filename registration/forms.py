@@ -2,7 +2,6 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from bootstrap3_datetime.widgets import DateTimePicker
 from captcha.fields import ReCaptchaField
-
 from registration.models import *
 from django.forms.models import ModelForm
 
@@ -62,14 +61,13 @@ class UserRegistrationForm(ModelForm):
         if commit: user.save()
         return user
 
-student_fields = [ 'name','curr_course','branch','tenth_mark','twelth_mark',
-                  's1','s2','s3','s4','s6','cgpa','curr_arrears','hist_arrears']
+student_fields = [ 'name','curr_course','branch','tenth_mark']
 
 class StudentRegistrationForm(ModelForm):
 
     class Meta:
         model = Student
-        fields = ['aums_id'] + student_fields
+        fields = ['aums_id'] + student_fields + ['twelth_mark']
 
 
 

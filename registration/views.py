@@ -129,9 +129,9 @@ class StudentFilterExternalView(ListView):
         branch = self.request.GET.get('branch')
         tenth = self.request.GET.get('tenth')
         twelth = self.request.GET.get('twelth')
-        return Student.Objects.filter(cgpa__gte = cgpa, curr_arrears =arrears,
-                                      branch=branch, tenth_mark__gte =tenth,
-                                      twelth_mark__gte=twelth)
+        return Student.Objects.filter(cgpa__gte = cgpa, curr_arrears = arrears,
+                                      branch = branch, tenth_mark__gte = tenth,
+                                      twelth_mark__gte = twelth)
 
 
 class StudentTechnicalTestEntryView(TemplateView):
