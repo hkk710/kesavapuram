@@ -11,9 +11,9 @@
               <thead>
                   <tr>
                         <th>Prathishtta</th>
-                        <th style="width:200px">Vazhipad Cattegory</th>
+                        <th style="width:180px">Vazhipad Cattegory</th>
                         <th>Vazhipad Name</th>
-                        <th>Your Name</th>
+                        <th style="width:180px">Your Name</th>
                        <th>Vazhipad Date</th>
                         <th>Price</th>
                         <!--<th>S1</th>
@@ -26,6 +26,7 @@
                         <th>Current Arrears</th>
                         <th>History of arrears</th>-->
                         <th>Edit</th>
+                        <th>Book</th>
 
                   </tr>
               </thead>
@@ -48,6 +49,8 @@
                     <td> {{ student.curr_arrears }} </td>
                     <td> {{ student.hist_arrears }} </td>-->
                     <td><a href="{% url 'student_profile_update' student.aums_id %}"  ><i class="fa fa-pencil fa-pull-left"> Edit</i></a></td>
+                    <td><a href="{% url 'student_profile_update' student.aums_id %}"  ><i class="fa fa-money fa-pull-left"> Payment</i></a></td>
+
 
 
               </tr>
@@ -55,7 +58,7 @@
               {% endfor %}
               {% else %}
               <div class="alert alert-danger" style="text-align: center">
-								 No Students have registered yet
+								 Your Vazhipad Cart is Empty !....
 						 	</div>
               {% endif%}
           </table>
