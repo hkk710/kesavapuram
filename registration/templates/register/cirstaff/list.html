@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% block body %}
 <div class="container">
+    <h3 class=" col-md-offset-2 " align="center">My Vazhipad Cart</h3> <br>
     <div class="templatemo-content-wrapper">
         <div class="templatemo-content">
   <div class="row">
@@ -11,11 +12,11 @@
               <thead>
                   <tr>
                         <th>Prathishtta</th>
-                        <th style="width:180px">Vazhipad Cattegory</th>
+                        <th style="width:170px">Vazhipad Cattegory</th>
                         <th>Vazhipad Name</th>
-                        <th style="width:180px">Your Name</th>
-                       <th>Vazhipad Date</th>
-                        <th>Price</th>
+                        <th style="width:150px">Your Name</th>
+                       <th style="width:140px">Vazhipad Date</th>
+                        <th><i class="fa fa-inr"></i></th>
                         <!--<th>S1</th>
                         <th>S2</th>
                         <th>S3</th>
@@ -26,7 +27,7 @@
                         <th>Current Arrears</th>
                         <th>History of arrears</th>-->
                         <th>Edit</th>
-                        <th>Book</th>
+                        <th><i class="fa fa-money fa-pull-left">Payment</i></th>
 
                   </tr>
               </thead>
@@ -48,8 +49,8 @@
                     <td> {{ student.cgpa }} </td>
                     <td> {{ student.curr_arrears }} </td>
                     <td> {{ student.hist_arrears }} </td>-->
-                    <td><a href="{% url 'student_profile_update' student.aums_id %}"  ><i class="fa fa-pencil fa-pull-left"> Edit</i></a></td>
-                    <td><a href="{% url 'student_profile_update' student.aums_id %}"  ><i class="fa fa-money fa-pull-left"> Payment</i></a></td>
+                    <td><a href="{% url 'student_profile_update' student.aums_id %}" ><i class="fa fa-pencil fa-pull-left">Edit</i></a></td>
+                    <td><a href="{% url 'student_profile_update' student.aums_id %}" >Pay Now</a></td>
 
 
 

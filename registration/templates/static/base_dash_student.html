@@ -93,15 +93,18 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
               <i class="fa fa-database"></i> Manage Users <div class="pull-right"><span class="caret"></span></div>
             </a>
             <ul class="templatemo-submenu">
-              <li><a href="{% url 'manage_students' %}">View Profile</a></li>
+              <li><a href="{% url 'register_student' %}">Add a Vazhipad</a></li>
+              <li><a href="{% url 'gallery' %}">Gallery</a></li>
+              <li><a href="{% url 'list' %}">Vazhipad cart</a></li>
             </ul>
           </li>
-
-        </ul>
-      </div><!--/.navbar-collapse -->
-
+            </ul>
+        </div>
+    {% block body %}
+</div>
     </div>
-{% block body %}
+      <!--/.navbar-collapse -->
+
 {% endblock body %}
 </div>
 {% include 'static/fixed_footer.html' %}

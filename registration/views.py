@@ -62,6 +62,9 @@ class UserRegistrationView(AnonymousRequiredMixin, FormView):
         form.save()
         return FormView.form_valid(self, form)
 
+#class galleryView(TemplateView):
+ #   template_name="gallery.html"
+  #  success_url = '/user/gallery/'
 
 
 class StudentRegistrationView( LoginRequiredMixin, FormView):
@@ -102,6 +105,18 @@ def handle_student_upload(request):
 
 class StudentListView(LoginRequiredMixin,ListView):
     template_name = 'register/cirstaff/list.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class GalleryListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/gallery.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class SapimgListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/sapimg.html'
 
     def get_queryset(self):
         return Student.Objects.all()
