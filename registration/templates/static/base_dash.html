@@ -87,15 +87,25 @@ http://www.templatemo.com/preview/templatemo_415_dashboard
               <span class="btn btn-default">Go</span>
             </form>
           </li>
-          <li class="active"><a href="{% url 'manage_students' %}"><i class="fa fa-home"></i>Dashboard</a></li>
+          <li class="active"><a href="{% url 'manage_students' %}"><i class="fa fa-home">{{ user.get_username }}</i></a></li>
           <li class="sub open">
             <a href="javascript:;">
-              <i class="fa fa-database"></i> Manage Users <div class="pull-right"><span class="caret"></span></div>
+              <i class="fa fa-database"></i> Profile <div class="pull-right"><span class="caret"></span></div>
             </a>
             <ul class="templatemo-submenu">
-              <li><a href="{% url 'register_student' %}">Add a Vazhipad</a></li>
-             <!-- <li><a href="{% url 'register_student_bulk' %}">Bulk Upload</a></li>-->
-              <li><a href="{% url 'list' %}">Vazhipad cart</a></li>
+             <!-- <li><a href="{% url 'register_student' %}">Add a Vazhipad</a></li>
+              <li><a href="{% url 'register_student_bulk' %}">Bulk Upload</a></li>
+              <li><a href="{% url 'list' %}">Vazhipad cart</a></li>-->
+                <li><a href="{% url 'gallery' %}">
+                  <i class='fa fa-eye' style='color:#F14700'></i> Gallery </a></li>
+               <li> <a href="{% url 'dailyrituals' %}">
+                    <i class='fa fa-eye' style='color:#F14700'></i> Daily Rituals </a></li>
+                <li><a href="{% url 'offerings' %}">
+                    <i class='fa fa-eye' style='color:#F14700'></i> Offerings </a></li>
+                <li><a href="{% url 'register_student' %}">
+                    <i class='fa fa-eye' style='color:#F14700'></i> Online Vazhipad </a></li>
+                <li><a href="{% url 'poojadetails' %}">
+                    <i class='fa fa-eye' style='color:#F14700'></i> Pooja Details </a></li>
             </ul>
           </li>
 

@@ -17,7 +17,15 @@
       <ul class="nav navbar-nav">
        <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
 		  <li><a href="{% url 'about' %}">About</a></li>
-        </li>
+          <li><a href="{% url 'contactus' %}">Contact us</a></li>
+          <li><a href="{% url 'orgin' %}">Orgin & History</a></li>
+          <li><a href="{% url 'upadevas' %}">Upadevas</a></li>
+          <li><a href="{% url 'organisationalsetup' %}">Organisational setup</a></li>
+          <li><a href="{% url 'activities' %}">Activities</a></li>
+          <li><a href="{% url 'festivals' %}">Festivals</a></li>
+          <li><a href="{% url 'facilities' %}">Facilities</a></li>
+          <li><a href="{% url 'officebearers' %}">Office Bearers</a></li>
+         <!-- <li><a href="{% url 'about' %}">Feadback</a></li>-->
       </ul>
       {% if user.is_anonymous %}
       <ul class="nav navbar-nav navbar-right">
@@ -32,7 +40,7 @@
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li class="{% if request.resolver_match.url_name == 'manage_staff' %}active{% endif %}">
                                     <a href="{% url 'manage_staff' %}">
-                                        <i class='fa fa-eye' style='color:#F14700'></i> Dashboard </a>
+                                        <i class='fa fa-eye' style='color:#F14700'></i> Profile </a>
                                 </li>
                                 <li class="{% if request.resolver_match.url_name == 'password_change' %}active{% endif %}">
                                     <a href="{% url 'password_change' %}">

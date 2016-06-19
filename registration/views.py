@@ -121,6 +121,73 @@ class SapimgListView(LoginRequiredMixin,ListView):
     def get_queryset(self):
         return Student.Objects.all()
 
+class DailyritualsListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/dailyrituals.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class OfferingsListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/offerings.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class PoojadetailsListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/poojadetails.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class ContactusListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/contactus.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class OrginListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/orgin.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class UpadevasListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/upadevas.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class OrganisationalsetupListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/organisationalsetup.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class ActivitiesListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/activities.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class FestivalsListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/festivals.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class FacilitiesListView(LoginRequiredMixin,ListView):
+    template_name = 'register/cirstaff/facilities.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+
+class OfficebearersListView(LoginRequiredMixin, ListView):
+    template_name = 'register/cirstaff/officebearers.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
 
 class StudentListUpdateView(UpdateView):
     model = Student

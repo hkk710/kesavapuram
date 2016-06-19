@@ -26,4 +26,16 @@ urlpatterns = [
     url(r'^student/tests/technical/$', StudentTechnicalTestEntryView.as_view(), name='technical_test'),
     url(r'^gallery/$', GalleryListView.as_view(), name='gallery'),
     url(r'^sapimg/$', SapimgListView.as_view(), name='sapimg'),
+    url(r'^dailyrituals/$', DailyritualsListView.as_view(), name='dailyrituals'),
+    url(r'^offerings/$', OfferingsListView.as_view(), name='offerings'),
+    url(r'^poojadetails/$', PoojadetailsListView.as_view(), name='poojadetails'),
+    url(r'^contactus/$', ContactusListView.as_view(), name='contactus'),
+    url(r'^orgin/$', OrginListView.as_view(), name='orgin'),
+    url(r'^upadevas/$', UpadevasListView.as_view(), name='upadevas'),
+    url(r'^organisationalsetup/$', OrganisationalsetupListView.as_view(), name='organisationalsetup'),
+    url(r'^activities/$', ActivitiesListView.as_view(), name='activities'),
+    url(r'^festivals/$', FestivalsListView.as_view(), name='festivals'),
+    url(r'^facilities/$', FacilitiesListView.as_view(), name='facilities'),
+    url(r'^officebearers/$', OfficebearersListView.as_view(), name='officebearers'),
+
 ]
