@@ -1,0 +1,22 @@
+{% extends "static/base_dash.html" %}
+{% load staticfiles %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<body>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <h3 class=" col-md-offset-2 " align="center">Prathishtta</h3> <br>
+    <div class="col-md-offset-3 ">
+    <div class="list-group">
+  <a href="{% url 'prathishtta_krishna' %}" class="list-group-item active"><h3>ശ്രീകൃഷ്ണസ്വാമി</h3></a>
+  <a href="{% url 'prathishtta_ganapathi' %}" class="list-group-item"><h3>ഗണപതി </h3></a>
+  <a href="{% url 'prathishtta_devi' %}" class="list-group-item"><h3>ദേവി </h3></a>
+  <a href="{% url 'prathishtta_nagar' %}" class="list-group-item"><h3> നാഗർ </h3></a>
+</div>
+        </div>
+</head>
+</body>
+{% endblock body %}
+</html>

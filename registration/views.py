@@ -188,6 +188,35 @@ class OfficebearersListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Student.Objects.all()
 
+class Vazhipad_bookingListView(LoginRequiredMixin, ListView):
+    template_name = 'register/cirstaff/vazhipad_booking.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class Prathishtta_krishnaListView(LoginRequiredMixin, ListView):
+    template_name = 'register/cirstaff/prathishtta_krishna.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class Prathishtta_ganapathiListView(LoginRequiredMixin, ListView):
+    template_name = 'register/cirstaff/prathishtta_ganapathi.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class Prathishtta_deviListView(LoginRequiredMixin, ListView):
+    template_name = 'register/cirstaff/prathishtta_devi.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class Prathishtta_nagarListView(LoginRequiredMixin, ListView):
+    template_name = 'register/cirstaff/prathishtta_nagar.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
 
 class StudentListUpdateView(UpdateView):
     model = Student

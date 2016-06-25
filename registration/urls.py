@@ -37,5 +37,9 @@ urlpatterns = [
     url(r'^festivals/$', FestivalsListView.as_view(), name='festivals'),
     url(r'^facilities/$', FacilitiesListView.as_view(), name='facilities'),
     url(r'^officebearers/$', OfficebearersListView.as_view(), name='officebearers'),
-
+    url(r'^vazhipad_booking/$', Vazhipad_bookingListView.as_view(), name='vazhipad_booking'),
+    url(r'^prathishtta_krishna/$', Prathishtta_krishnaListView.as_view(), name='prathishtta_krishna'),
+    url(r'^prathishtta_ganapathi/$', Prathishtta_ganapathiListView.as_view(), name='prathishtta_ganapathi'),
+    url(r'^prathishtta_devi/$', Prathishtta_deviListView.as_view(), name='prathishtta_devi'),
+    url(r'^prathishtta_nagar/$', Prathishtta_nagarListView.as_view(), name='prathishtta_nagar'),
 ]

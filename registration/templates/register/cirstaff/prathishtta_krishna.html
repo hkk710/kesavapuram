@@ -1,0 +1,27 @@
+{% extends "static/base_dash.html" %}
+{% load staticfiles %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<body>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <h3 class=" col-md-offset-2 " align="center">Vazhipad Cattegory</h3> <br>
+    <div class="col-md-offset-3 ">
+        <div class="list-group">
+  <a href="{% url 'prathishtta_krishna' %}" class="list-group-item active"><h3>അർച്ചന</h3></a>
+  <a href="{% url 'vazhipad_booking' %}" class="list-group-item"><h3>പൂജ</h3></a>
+  <a href="{% url 'vazhipad_booking' %}" class="list-group-item"><h3>സമർപ്പണം </h3></a>
+  <a href="{% url 'vazhipad_booking' %}" class="list-group-item"><h3>അഭിഷേകം</h3></a>
+  <a href="{% url 'vazhipad_booking' %}" class="list-group-item"><h3>ഹോമം</h3></a>
+  <a href="{% url 'vazhipad_booking' %}" class="list-group-item"><h3>മാലചാർത്ത് </h3></a>
+  <a href="{% url 'vazhipad_booking' %}" class="list-group-item"><h3>അഭിഷേകം </h3></a>
+  <a href="{% url 'vazhipad_booking' %}" class="list-group-item"><h3>നിവേദ്യം </h3></a>
+
+</div>
+        </div>
+</head>
+</body>
+{% endblock body %}
+</html>
