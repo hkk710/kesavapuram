@@ -42,4 +42,5 @@ urlpatterns = [
     url(r'^prathishtta_ganapathi/$', Prathishtta_ganapathiListView.as_view(), name='prathishtta_ganapathi'),
     url(r'^prathishtta_devi/$', Prathishtta_deviListView.as_view(), name='prathishtta_devi'),
     url(r'^prathishtta_nagar/$', Prathishtta_nagarListView.as_view(), name='prathishtta_nagar'),
+    url(r'^archana_krishna/$', Archana_krishnaListView.as_view(), name='archana_krishna'),
 ]

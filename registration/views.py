@@ -218,6 +218,12 @@ class Prathishtta_nagarListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Student.Objects.all()
 
+class Archana_krishnaListView(LoginRequiredMixin, ListView):
+    template_name = 'register/cirstaff/archana_krishna.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
 class StudentListUpdateView(UpdateView):
     model = Student
     fields = student_fields
