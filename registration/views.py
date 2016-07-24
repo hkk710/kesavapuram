@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import redirect
-from cirplacements import settings
+from kesavapuramsreekrishnaswamytemple import settings
 from django.views.generic.edit import FormView, UpdateView
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -18,6 +18,8 @@ import pyexcel.ext.xls   # pip install pyexcel-xls
 import pyexcel.ext.xlsx # pip install pyexcel-xlsx
 import pyexcel.ext.ods # pip install pyexcel-ods
 import django_excel as excel
+from django.views.generic import DetailView
+from django.views.generic.edit import FormView, UpdateView
 from django.template import RequestContext
 from django.views.generic import TemplateView
 from django.shortcuts import render_to_response
@@ -68,9 +70,9 @@ class UserRegistrationView(AnonymousRequiredMixin, FormView):
 
 
 class StudentRegistrationView( LoginRequiredMixin, FormView):
-    template_name = "register/cirstaff/register_student.html"
+    template_name = "register/kststaff/register_student.html"
     form_class = StudentRegistrationForm
-    success_url = '/register/cirstaff/success'
+    success_url = '/register/kststaff/success'
 
     def form_valid(self, form):
         form.instance.aums_id = form.instance.aums_id.lower()
@@ -78,7 +80,7 @@ class StudentRegistrationView( LoginRequiredMixin, FormView):
         return FormView.form_valid(self, form)
 
 class StudentBulkUploadView( LoginRequiredMixin, FormView):
-    template_name = "register/cirstaff/register_bulk_student.html"
+    template_name = "register/kststaff/register_bulk_student.html"
     form_class = UploadFileForm
     success_url = '/register/student/success/'
 
@@ -95,7 +97,7 @@ def handle_student_upload(request):
                                                         student[6],student[7],student[8],student[9],student[10],student[11],student[12],student[13],student[14])
                 counter = counter+1
 
-            return render_to_response('register/cirstaff/register_bulk_student_list.html',{'counter':counter },
+            return render_to_response('register/kststaff/register_bulk_student_list.html',{'counter':counter },
                                        context_instance=RequestContext(request))
         else :
              return redirect(request.META['HTTP_REFERER'])
@@ -104,122 +106,137 @@ def handle_student_upload(request):
 
 
 class StudentListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/list.html'
+    template_name = 'register/kststaff/list.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class GalleryListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/gallery.html'
+    template_name = 'register/kststaff/gallery.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class SapimgListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/sapimg.html'
+    template_name = 'register/kststaff/sapimg.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class DailyritualsListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/dailyrituals.html'
+    template_name = 'register/kststaff/dailyrituals.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class OfferingsListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/offerings.html'
+    template_name = 'register/kststaff/offerings.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class PoojadetailsListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/poojadetails.html'
+    template_name = 'register/kststaff/poojadetails.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class ContactusListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/contactus.html'
+    template_name = 'register/kststaff/contactus.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class OrginListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/orgin.html'
+    template_name = 'register/kststaff/orgin.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class UpadevasListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/upadevas.html'
+    template_name = 'register/kststaff/upadevas.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class OrganisationalsetupListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/organisationalsetup.html'
+    template_name = 'register/kststaff/organisationalsetup.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class ActivitiesListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/activities.html'
+    template_name = 'register/kststaff/activities.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class FestivalsListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/festivals.html'
+    template_name = 'register/kststaff/festivals.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class FacilitiesListView(LoginRequiredMixin,ListView):
-    template_name = 'register/cirstaff/facilities.html'
+    template_name = 'register/kststaff/facilities.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 
 class OfficebearersListView(LoginRequiredMixin, ListView):
-    template_name = 'register/cirstaff/officebearers.html'
+    template_name = 'register/kststaff/officebearers.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class Vazhipad_bookingListView(LoginRequiredMixin, ListView):
-    template_name = 'register/cirstaff/vazhipad_booking.html'
+    template_name = 'register/kststaff/vazhipad_booking.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class Prathishtta_krishnaListView(LoginRequiredMixin, ListView):
-    template_name = 'register/cirstaff/prathishtta_krishna.html'
+    template_name = 'register/kststaff/prathishtta_krishna.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class Prathishtta_ganapathiListView(LoginRequiredMixin, ListView):
-    template_name = 'register/cirstaff/prathishtta_ganapathi.html'
+    template_name = 'register/kststaff/prathishtta_ganapathi.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class Prathishtta_deviListView(LoginRequiredMixin, ListView):
-    template_name = 'register/cirstaff/prathishtta_devi.html'
+    template_name = 'register/kststaff/prathishtta_devi.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class Prathishtta_nagarListView(LoginRequiredMixin, ListView):
-    template_name = 'register/cirstaff/prathishtta_nagar.html'
+    template_name = 'register/kststaff/prathishtta_nagar.html'
 
     def get_queryset(self):
         return Student.Objects.all()
 
 class Archana_krishnaListView(LoginRequiredMixin, ListView):
-    template_name = 'register/cirstaff/archana_krishna.html'
+    template_name = 'register/kststaff/archana_krishna.html'
+
+    def get_queryset(self):
+        return Student.Objects.all()
+
+class Book_vazhipadView(FormView):
+    template_name = 'register/kststaff/book_vazhipad.html'
+    form_class = VazhipadAddForm
+    success_url = '/register/kart/'
+
+    def form_valid(self, form):
+        form.save()
+        return FormView.form_valid(self, form)
+
+class KartListView(LoginRequiredMixin, ListView):
+    template_name = 'register/kststaff/kart.html'
 
     def get_queryset(self):
         return Student.Objects.all()
@@ -228,7 +245,7 @@ class StudentListUpdateView(UpdateView):
     model = Student
     fields = student_fields
     template_name_suffix = '_update_form'
-    success_url = '/register/cirstaff/success/'
+    success_url = '/register/kststaff/success/'
 
     def get_object(self, queryset=None):
         obj = Student.Objects.get(aums_id=self.kwargs['aums_id'])
@@ -238,7 +255,7 @@ class StudentListUpdateView(UpdateView):
             raise Http404("That doesnt exist.")
 
 class StudentFilterExternalView(ListView):
-    template_name = "register/cirstaff/filter_external_list.html"
+    template_name = "register/kststaff/filter_external_list.html"
 
     def get_queryset(self):
         cgpa = self.request.GET.get('cgpa')
@@ -252,7 +269,7 @@ class StudentFilterExternalView(ListView):
 
 
 class StudentTechnicalTestEntryView(TemplateView):
-    template_name = "register/cirstaff/tests/technical_tests.html"
+    template_name = "register/kststaff/tests/technical_tests.html"
 
     def get_context_data(self, **kwargs):
         context = super(StudentTechnicalTestEntryView, self).get_context_data(**kwargs)
@@ -267,5 +284,5 @@ class StudentTechnicalTestEntryView(TemplateView):
         student = Student.Objects.get(aums_id=aums_id)
         test = Test.Objects.get(pk=test_id)
         TechTest.Objects.create_test_entry(student, test, marks)
-        return render_to_response('register/cirstaff/tests/technical_tests.html',
+        return render_to_response('register/kststaff/tests/technical_tests.html',
                                   {'success': 'success', 'myvar': Test.Objects.all() })

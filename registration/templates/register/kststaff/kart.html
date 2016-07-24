@@ -1,0 +1,28 @@
+{% extends "static/base_dash.html" %}
+{% load staticfiles %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <body>
+   <div class="col-md-4 col-md-offset-4 well">
+<div class="panel panel-primary">
+<div class="panel-heading">
+  <h6 class="panel-title"><i class="fa fa-pied-piper fa-3x" aria-hidden="true"></i>
+{{user.get_username}}</h6>
+</div>
+<div class="panel-body">
+    <table class="table table-hover table-bordered table-responsive">
+<tr>
+ <th>Descripton:</th> <td>{{ Student.get_name }}</td>
+</tr><th>Price: </th><td>{{ object.price }}</td>
+    </table>
+</div>
+</div>
+</div>
+</head>
+</body>
+{% endblock body %}
+</html>

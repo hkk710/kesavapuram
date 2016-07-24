@@ -83,3 +83,21 @@ class TechnicalTestEntryForm(ModelForm):
         model = TechTest
         fields = test_fields
 
+
+chocolate_fields =['name', 'description', 'manufacturer', 'price']
+chocolate_widgets = {
+    'name': forms.TextInput(attrs={'placeholder':_('Your Name'),'required': True}),
+
+    'description': forms.TextInput(attrs={'placeholder':_('Your Star'),'required': True}),
+    'manufacturer': forms.TextInput(attrs={'placeholder':_('Date'),'required': True}),
+    'price': forms.TextInput(attrs={'placeholder':_('Price'),'required': True}),
+}
+
+class VazhipadAddForm(ModelForm):
+    class Meta:
+        model = Chocolate
+        fields = chocolate_fields
+        widgets = chocolate_widgets
+
+
+

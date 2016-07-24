@@ -183,3 +183,12 @@ class EligibilityTest(models.Model):
     student = models.ForeignKey(Student, null=False, blank=False)
     marks = models.FloatField( _('Mark'), blank=True, null=True)
 
+
+class Chocolate(models.Model):
+    id           = models.AutoField(primary_key=True)
+    name         = models.CharField(_('Your Name'), max_length=100, blank=True, null=True)
+    description  = models.CharField(_('Your Star'), max_length=100, blank=True, null=True)
+    manufacturer = models.CharField(_('Vazhipad Date'), max_length=100, blank=True, null=True)
+    price        = models.IntegerField(_('Price'),
+                                 validators=[MaxValueValidator(1000), MinValueValidator(0)],
+                                 help_text=_('4 digits maximum'), blank=True, null=True)
