@@ -78,12 +78,6 @@ test_widgets= {
 
 test_fields = ['marks']
 
-class TechnicalTestEntryForm(ModelForm):
-    class Meta:
-        model = TechTest
-        fields = test_fields
-
-
 chocolate_fields =['name', 'description', 'manufacturer', 'price']
 chocolate_widgets = {
     'name': forms.TextInput(attrs={'placeholder':_('Your Name'),'required': True}),
@@ -98,6 +92,5 @@ class VazhipadAddForm(ModelForm):
         model = Chocolate
         fields = chocolate_fields
         widgets = chocolate_widgets
-
 
 

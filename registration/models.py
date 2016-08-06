@@ -102,87 +102,8 @@ class Student(models.Model):
     branch = models.CharField(_('Your Name'), max_length=32, blank=True, null=True)
     tenth_mark = models.DateField(_('Vazhipad Date'), null=True)
     twelth_mark = models.FloatField( _('Price'), blank=True, null=True)
-    #s1 = models.FloatField(_('S1 Mark'), blank=True, null=True)
-    #s2 = models.FloatField(_('S2 Mark'), blank=True, null=True)
-    #s3 = models.FloatField(_('S3 Mark'), blank=True, null=True)
-    #s4 = models.FloatField(_('S4 Mark'), blank=True, null=True)
-    #s5 = models.FloatField(_('S5 Mark'), blank=True, null=True)
-    #s6 = models.FloatField(_('S6 Mark'), blank=True, null=True)
-    #cgpa = models.FloatField(_('CGPA'), blank=True, null=True)
-    #curr_arrears = models.IntegerField(_('No of current arrears'), blank=True, null=True)
-    #hist_arrears = models.IntegerField(_('No of history arrears'), blank=True, null=True)
 
     Objects = StudentManager()
-
-TYPES = (('Technical', _('Technical')), ('HR', _('HR')), ('Quantitative', _('Quantitative')),
-         ('Verbals', _('Verbals')),
-         ('Reasoning', _('Reasoning')),
-         ('Eligibility', _('Eligibility')),
-         ('Aptitude', _('Aptitude'))
-         )
-
-class TestManager(models.Manager):
-    pass
-
-class Test(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(_('Test Name'), max_length=25, unique=False)
-    date = models.DateField(_('Test Date'), null=False)
-    type = models.CharField(_('Test Type'), max_length=20,
-                            choices=TYPES, blank=False, unique=False)
-
-    Objects = TestManager()
-
-
-class TechTestManager(models.Manager):
-    def create_test_entry(self, student, test, marks ):
-        return self.create(student=student, test=test, marks=marks)
-
-
-class TechTest(models.Model):
-    test = models.ForeignKey(Test, null=False, blank=False)
-    student = models.ForeignKey(Student, null=False, blank=False)
-    marks = models.FloatField( _('Mark'), blank=True, null=True)
-
-    Objects = TechTestManager()
-
-
-
-class HRTest(models.Model):
-    test = models.ForeignKey(Test, null=False, blank=False)
-    student = models.ForeignKey(Student, null=False, blank=False)
-    marks = models.FloatField( _('Mark'), blank=True, null=True)
-
-
-class QuantitativeTest(models.Model):
-    test = models.ForeignKey(Test, null=False, blank=False)
-    student = models.ForeignKey(Student, null=False, blank=False)
-    marks = models.FloatField( _('Mark'), blank=True, null=True)
-
-
-class VerbalsTest(models.Model):
-    test = models.ForeignKey(Test, null=False, blank=False)
-    student = models.ForeignKey(Student, null=False, blank=False)
-    marks = models.FloatField( _('Mark'), blank=True, null=True)
-
-
-class ReasoningTest(models.Model):
-    test = models.ForeignKey(Test, null=False, blank=False)
-    student = models.ForeignKey(Student, null=False, blank=False)
-    marks = models.FloatField( _('Mark'), blank=True, null=True)
-
-
-class AptitudeTest(models.Model):
-    test = models.ForeignKey(Test, null=False, blank=False)
-    student = models.ForeignKey(Student, null=False, blank=False)
-    marks = models.FloatField( _('Mark'), blank=True, null=True)
-
-
-class EligibilityTest(models.Model):
-    test = models.ForeignKey(Test, null=False, blank=False)
-    student = models.ForeignKey(Student, null=False, blank=False)
-    marks = models.FloatField( _('Mark'), blank=True, null=True)
-
 
 class Chocolate(models.Model):
     id           = models.AutoField(primary_key=True)
